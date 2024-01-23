@@ -1,5 +1,7 @@
 # PushOver Gateway for Foxtrot
 
+<img src="imgs/logo.png" style="float: left; margin-right: 10px;" width="100">
+
 When using the [Tecomat Foxtrot PLC](https://tecomat.com) to send push notifications to iOS or Android phones, you can use the services from [PushOver](https://pushover.net). The PLC Foxtrot 2 allows the prime use of TLS connection see. Foxtrot2 directory with the fbPushNotification function block. 
 
 In the case of Foxtrot 1 the TLS security connection cannot be used. It is necessary to use an HTTP connection, see the foxtrot1 directory and the fbPushNotification1 function block. 
@@ -8,7 +10,14 @@ To avoid sending sensitive information, a simple gateway can be used. This conve
 
 ## Function block
 
+Function blocks are written in ST in IDE MOSAIC.
 
+<table>
+    <tr>
+        <td><img src="imgs/fox2.png" alt="Foxtrot 2" width="300"></td>
+        <td><img src="imgs/gtw1.png" alt="Foxtrot 1 & GTW" width="300"></td>
+    </tr>
+</table>
 
 ## Hardware
 
