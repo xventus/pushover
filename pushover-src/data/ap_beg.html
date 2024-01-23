@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PushOver gateway</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="topnav">
+    <h1>PUSHOVER Gateway</h1>
+  </div>
+  <div class="content">
+    <div class="card-grid">
+      <div class="card">
+        <form action="/" method="POST">
+          <p>
+           
+            <label for="ssid">SSID</label>
+            <input type="text" id ="ssid" name="ssid"><br>
+          
+            <label for="pass">Password</label>
+            <input type="password" id ="pass" name="pass"><br>
+            
+            <label for="ip">Device IP (EMPTY for DHCP)</label>
+            <input type="text" id ="ip" name="ip"><br>
+            
+            <label for="mask">Netmask</label>
+            <input type="text" id ="mask" name="mask"><br>
+          
+            <label for="gw">Gateway</label>
+            <input type="text" id ="gw" name="gw"><br>
+
+            <label for="dns">DNS</label>
+            <input type="text" id ="dns" name="dns"><br>
+
+            <label for="pshover">PushOver server</label>
+            <input type="text" id ="pshover" name="pshover"><br>
+
+            <input type ="submit" value ="Submit"> 
+            <input type="button" value="Clear" onclick="clearForm()">
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+  function clearForm() {
+      document.getElementById('ssid').value = '';
+      document.getElementById('pass').value = '';
+      document.getElementById('ip').value = '';
+      document.getElementById('gw').value = '';
+      document.getElementById('mask').value = '';
+      document.getElementById('pshover').value = '';
+      document.getElementById('dns').value = '';
+    }
+
+    window.onload = function() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/kv', true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var data = JSON.parse(xhr.responseText);
+          document.getElementById('ssid').value = data.ssid;
+          document.getElementById('pass').value = data.pass;
+          document.getElementById('ip').value = data.ip;
+          document.getElementById('gw').value = data.gw;
+          document.getElementById('mask').value = data.mask;
+          document.getElementById('pshover').value = data.pshover;
+          document.getElementById('dns').value = data.dns;
+        }
+      }
+      xhr.send();
+    }
+    </script>
+
+  <div class="wifi-info">
+    <h2>Discovering nearby Wifi sites</h2>
+    <ul id="wifi-list">
+     

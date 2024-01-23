@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PushOver Gateway</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="dialog-box">
+        <div class="dialog-title">PushOver gateway</div>
+        <img src="psh.png" alt="PushOver Logo" style="width:100px; height:auto; margin-bottom:20px;">
+        <div class="dialog-message">The gateway has been configured and running.</div>
+        <div id="urlDisplay"></div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            var urlText = window.location.origin + "/push";
+            document.getElementById("urlDisplay").innerText = urlText;
+        };
+    </script>
+</body>
+</html>
